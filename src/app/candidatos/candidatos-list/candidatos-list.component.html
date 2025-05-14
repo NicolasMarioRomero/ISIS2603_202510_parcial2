@@ -2,19 +2,20 @@
     <h1 class="mt-7" style="color: white; background-color: #C41E3A; text-align: center;">Candidatos a Papa - 2025</h1>
 
     <div class="row">
-        <tbody>
-            <tr class="col-md-12" *ngFor="let candidato of candidatos" (click)="seleccionarCandidato(candidato)">
-                <div class="card p-2" style="width: 10rem; height: 13rem">
-                    <td><img [src]="candidato.foto" alt="{{ candidato.nombre }}" style="width: 10rem; height: 13rem;"></td>
+        <div>
+            <div class="col-md-12" *ngFor="let candidato of candidatos" (click)="seleccionarCandidato(candidato)">
+                <div class="card p-2">
+                    <img [src]="candidato.foto" alt="{{ candidato.nombre }}" style="width: 10rem; height: 13rem;">
+                    <div class="card-body" style="width: 10rem; height: 13rem; text-align: start;">
+                        <td>Nombre: {{ candidato.nombre }}</td>
+                        <td>Pais: {{ candidato.pais_origen }}</td>
+                        <td>Edad: {{ candidato.edad }} años</td>
+                        <td>Vertiente Religiosa: {{ candidato.vertiente_religiosa }}</td>
+                    </div>
                 </div>
-                <div class="card p-2" style="width: 10rem; height: 13rem">
-                    <td>{{ candidato.nombre }}</td>
-                    <td>{{ candidato.pais_origen }}</td>
-                    <td>{{ candidato.edad }} años</td>
-                    <td>{{ candidato.vertiente_religiosa }}</td>
-                </div>
-            </tr>
-        </tbody>
+                
+            </div>
+        </div>
     </div>
 
     <app-candidatos-detail *ngIf="candidatoSeleccionado" [candidato]="candidatoSeleccionado"></app-candidatos-detail>
